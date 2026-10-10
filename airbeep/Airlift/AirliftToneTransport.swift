@@ -145,7 +145,7 @@ actor AirliftToneTransport {
         }
     }
 
-    private static func configureTargets() {
+    static func configureTargets() {
         guard let symbol = dlsym(rtlDefaultHandle(), "al_set_target_host") else { return }
         let setTarget = unsafeBitCast(symbol, to: SetTargetFn.self)
         _ = "10.7.0.1".withCString { setTarget($0) }
